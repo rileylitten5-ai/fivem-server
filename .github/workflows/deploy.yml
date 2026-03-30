@@ -1,0 +1,18 @@
+name: Deploy to FiveM
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 2022
+          local-dir: ./
+          server-dir: /home/user_qlfuf6tc6krv18xlv6ghj1rvn.e5139dd2/resources/
