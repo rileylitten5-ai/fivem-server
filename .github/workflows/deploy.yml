@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
+          server: syd-h01.vibegames.net
+          username: user_qlfuf6tc6krv18xlv6ghj1rvn.e5139dd2
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 2022
