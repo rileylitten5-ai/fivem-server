@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: syd-h01.vibegames.net
           username: user_qlfuf6tc6krv18xlv6ghj1rvn.e5139dd2
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
           port: 2022
-          local-dir: ./
-          server-dir: /home/user_qlfuf6tc6krv18xlv6ghj1rvn.e5139dd2/resources/
+          local_path: ./*
+          remote_path: /home/user_qlfuf6tc6krv18xlv6ghj1rvn.e5139dd2/resources/
+          sftp_only: true
